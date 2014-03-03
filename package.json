@@ -1,10 +1,10 @@
 {
   "name": "unpm-router",
   "version": "0.0.0",
-  "description": "router for npm, simple wrapper around routes that adds suport for querystrings and methods",
+  "description": "router for unpm, simple wrapper around routes that adds suport for querystrings and methods",
   "main": "lib/index",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "homepage": "https://github.com/mghayes/unpm-router",
   "dependencies": {
     "routes": "0.2.0"
+  },
+  "devDependencies": {
+    "tape": "2.5.0"
   }
 }

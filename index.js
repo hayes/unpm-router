@@ -1,13 +1,12 @@
-var qs = require('querystring')
-  , Routes = require('routes')
+var Routes = require('routes')
   , path = require('path')
-  , url = require('ur')
+  , url = require('url')
 
 module.exports = Router
 
 function Router(root) {
   if(!(this instanceof Router)) {
-    return new Router(app, not_found, root)
+    return new Router(root)
   }
 
   this.routers = {}
@@ -25,22 +24,26 @@ Router.prototype.add = function add(method, pattern, handler) {
 }
 
 Router.prototype.match = function match(method, route) {
-  if(typeof method === object) {
-    method.method.toUpperCase()
-    route = url.req.url
+  if(typeof method === 'object') {
+    route = method.url
+    method = method.method.toUpperCase()
   }
 
   route = url.parse(route, true)
 
   var routes = this.routers[method]
-    , query = url.query
+    , query = route.query
     , result
 
-  if(this.root && route.indexOf(this.root) !== 0) {
+  if(!routes) {
     return
   }
 
-  route = path.relative(root, route.pathname)
+  if(this.root && route.pathname.indexOf(this.root) !== 0) {
+    return
+  }
+
+  route = path.relative(this.root, route.pathname)
 
   if(route.charAt(0) !== '/') {
     route = '/' + route
