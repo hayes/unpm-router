@@ -1,0 +1,26 @@
+{
+  "name": "unpm-router",
+  "version": "0.0.0",
+  "description": "router for npm, simple wrapper around routes that adds suport for querystrings and methods",
+  "main": "lib/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mghayes/unpm-router"
+  },
+  "keywords": [
+    "router",
+    "unpm"
+  ],
+  "author": "Michael Hayes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mghayes/unpm-router/issues"
+  },
+  "homepage": "https://github.com/mghayes/unpm-router",
+  "dependencies": {
+    "routes": "0.2.0"
+  }
+}
