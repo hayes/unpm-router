@@ -2,7 +2,7 @@
   "name": "unpm-router",
   "version": "0.0.0",
   "description": "router for unpm, simple wrapper around routes that adds suport for querystrings and methods",
-  "main": "lib/index",
+  "main": "index.js",
   "scripts": {
     "test": "tape test/*.test.js"
   },
