@@ -48,12 +48,11 @@ Router.prototype.match = function match(method, route) {
   route = route.pathname.slice(this.root.length)
   result = routes.match(route)
 
-
   if(!result) {
     return
   }
 
-  result.query = query
+  result.query = query || {}
 
   return result
 }
