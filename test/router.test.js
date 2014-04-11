@@ -37,6 +37,18 @@ test('prefix works with / route', function(t) {
   t.ok(router.match(fake_req), '/ route works with prefix')
 })
 
-function noop() {
+test('matches routes as expected', function(t) {
+  t.plan(2)
 
-}
+  var fake_req = {method: 'post', url: '/cats'}
+    , router = Router()
+
+  router.add('post', '/cats', noop)
+
+  var route = router.match(fake_req)
+
+  t.ok(route, 'matched!')
+  t.equal(route.fn, noop, 'returned correct function')
+})
+
+function noop() {}

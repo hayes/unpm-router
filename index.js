@@ -27,6 +27,8 @@ Router.prototype.match = function match(method, route) {
   if(typeof method === 'object') {
     route = method.url
     method = method.method.toUpperCase()
+  } else {
+    method = method.toUpperCase()
   }
 
   route = url.parse(route, true)
@@ -43,19 +45,14 @@ Router.prototype.match = function match(method, route) {
     return
   }
 
-  route = path.relative(this.root, route.pathname)
-
-  if(route.charAt(0) !== '/') {
-    route = '/' + route
-  }
-
+  route = route.pathname.slice(this.root.length)
   result = routes.match(route)
 
   if(!result) {
     return
   }
 
-  result.query = query
+  result.query = query || {}
 
   return result
 }
