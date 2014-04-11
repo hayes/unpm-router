@@ -1,5 +1,4 @@
 var Routes = require('routes')
-  , path = require('path')
   , url = require('url')
 
 module.exports = Router
