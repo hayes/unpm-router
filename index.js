@@ -1,5 +1,4 @@
 var Routes = require('routes')
-  , path = require('path')
   , url = require('url')
 
 module.exports = Router
@@ -46,6 +45,11 @@ Router.prototype.match = function match(method, route) {
   }
 
   route = route.pathname.slice(this.root.length)
+
+  if(route[0] !== '/') {
+    route = '/' + route
+  }
+
   result = routes.match(route)
 
   if(!result) {
