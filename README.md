@@ -3,6 +3,8 @@ unpm-router
 
 HTTP router for [unpm](https://github.com/mghayes/unpm)
 
+[![Build Status](https://travis-ci.org/hayes/unpm-router.png?branch=master)](https://travis-ci.org/hayes/unpm-router)
+
 ## usage
 
 ```js
