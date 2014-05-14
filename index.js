@@ -58,6 +58,7 @@ Router.prototype.match = function match(method, route) {
 
   result.query = query || {}
   result.method = method
+  result.path = route
 
   return result
 }
