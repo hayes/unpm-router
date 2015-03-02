@@ -51,4 +51,19 @@ test('matches routes as expected', function(t) {
   t.equal(route.fn, noop, 'returned correct function')
 })
 
+test('decode components', function(t) {
+  t.plan(3)
+
+  var fake_req = {method: 'post', url: '/a%2fb'}
+    , router = Router()
+
+  router.add('post', '/:name', noop)
+
+  var route = router.match(fake_req)
+
+  t.ok(route, 'matched!')
+  t.equal(route.fn, noop, 'returned correct function')
+  t.deepEqual(route.params, {name: 'a/b'}, 'decoded')
+})
+
 function noop() {}

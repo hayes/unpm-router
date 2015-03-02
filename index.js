@@ -1,5 +1,6 @@
 var Routes = require('routes')
-  , url = require('url')
+var url = require('url')
+var qs = require('querystring')
 
 module.exports = Router
 
@@ -54,6 +55,16 @@ Router.prototype.match = function match(method, route) {
 
   if(!result) {
     return
+  }
+
+  result.splats = result.splats.map(qs.unescape)
+
+  var params = Object.keys(result.params)
+
+  for (var i = 0, l = params.length; i < l; ++i) {
+    if(result.params[params[i]]) {
+      result.params[params[i]] = qs.unescape(result.params[params[i]])
+    }
   }
 
   result.query = query || {}
