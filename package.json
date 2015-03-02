@@ -1,6 +1,6 @@
 {
   "name": "unpm-router",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "router for unpm, simple wrapper around routes that adds suport for querystrings and methods",
   "main": "index.js",
   "scripts": {
